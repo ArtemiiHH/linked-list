@@ -42,6 +42,8 @@ export class LinkedList {
       count++;
       current = current.nextNode;
     }
+
+    return count;
   }
 
   get heads() {
