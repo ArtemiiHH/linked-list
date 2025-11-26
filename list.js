@@ -15,10 +15,11 @@ export class LinkedList {
     const node = new Node();
     node.value = value;
     if (this.head === null) {
-      this.head, (this.tail = new Node());
+      this.head = node;
+      this.tail = node;
     } else {
-      node += this.tail.nextNode;
-      this.tail = new Node();
+      this.tail.nextNode = node;
+      this.tail = node;
     }
   }
 
@@ -26,10 +27,11 @@ export class LinkedList {
     const node = new Node();
     node.value = value;
     if (this.head === null) {
-      this.head, (this.tail = new Node());
+      this.head = node;
+      this.tail = node;
     } else {
-      node = this.head;
-      this.head = new Node();
+      node.nextNode = this.head;
+      this.head = node;
     }
   }
 
