@@ -56,17 +56,31 @@ export class LinkedList {
 
   at(index) {
     let current = this.head;
-    while (current !== index) {
-      current = current.node;
-      if (current === null) {
-        break;
-      }
+    let i = 0;
+    while (current !== null && i < index) {
+      current = current.nextNode;
+      i++;
+    }
+
+    if (current === null) {
+      return null;
+    } else if (i === index) {
+      return current;
     }
   }
 
   pop() {
-    while (current.nextNode !== this.tail) {
-      this.tail = new Node();
+    let current = this.head;
+    if (current === null) {
+      return;
+    } else if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      while (current.nextNode !== this.tail) {
+        current = current.nextNode;
+      }
+      this.tail = current;
       current.nextNode = null;
     }
   }
